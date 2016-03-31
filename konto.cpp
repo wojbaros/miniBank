@@ -180,6 +180,7 @@ void Konto::zobacz() const
     cout<<"\n        Dlug: : ";
     cout.width( 21);
     cout<<dlug<<" zl";
+    cout<<"\n        ________________________________"<<endl;
 
 }
 

@@ -43,7 +43,7 @@ public:
     friend void obsluga(int i);
     friend void wczytywanie();
     friend double stopaprocentowa();
-    friend ostream& operator <<(ostream& out, const Konto& a)
+    friend ostream& operator <<(ostream& out, const Konto &a)
     {
         out << a.imie << '\n';
         out << a.nazwisko << '\n';
@@ -54,7 +54,7 @@ public:
         out << a.dlug << '\n';
         return out;
     }
-    friend istream& operator >>(istream& in, Konto& a)
+    friend istream& operator >>(istream& in, Konto &a)
     {
         string zmiana;
         string podmiana;
@@ -68,6 +68,13 @@ public:
         getline(in,podmiana);
         a.dlug=atof(podmiana.c_str());
         return in;
+    }
+    friend bool operator<(const Konto &a1, const Konto &a2)
+    {
+        if (a1.stan<a2.stan) return true;
+        else if (a1.stan==a2.stan && a1.dlug>a2.dlug)
+            return true;
+        else return false;
     }
 };
 

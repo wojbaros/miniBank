@@ -7,6 +7,7 @@
 #include <vector>
 #include <ctime>
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 vector<Konto> klient;
@@ -22,6 +23,7 @@ void logowanieadmin();
 void obsluga(int i);
 void administracja();
 void przelew(unsigned int i);
+
 
 
 
@@ -293,14 +295,13 @@ void listaklientow()
 {
     system("cls");
     naglowek();
-    for (unsigned int i=0; i<klient.size(); i++)
-    {
-        klient[i].zobacz();
-        cout<<"\n___________________________________"<<endl;
-    }
-    cout<<"Liczba klientow: "<<klient.size();
+    sort(klient.begin(),klient.end());
+    for (int i=0;i<klient.size();i++)
+    klient[i].zobacz();
+    cout<<"        Liczba klientow: "<<klient.size();
     getchar();
     getchar();
+
 }
 void logowanie()
 {
