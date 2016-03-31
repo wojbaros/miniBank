@@ -12,4 +12,11 @@ jakub
 misiek
 20000
 0
+Karol
+Kwapisiewicz
+345678
+karol
+karol
+30000
+0
 
