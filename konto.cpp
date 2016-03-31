@@ -17,6 +17,8 @@ precis prec = cout.precision(2);
 
 void naglowek();
 void obsluga(int i);
+extern Admin admin;
+
 
 Konto::Konto(string i,string n,string numb,string l,string h,double s,double d)
 {
@@ -88,7 +90,7 @@ void Konto::wyplata()
 void Konto::pozyczka()
 {
     double kwota;
-    double procent=0.1;
+    double procent=admin.stopa;
     cout<<"Stopa procentowa przy pozyczce wynosi "<<procent*100<<" %\n";
     cout<<"Podaj jaka kwote chcesz pozyczyc: ";
     cin>>kwota;
@@ -221,9 +223,9 @@ double Admin::stopaprocentowa()
     if (cin.good()&& s>=0)
     {
         cout<<"Elegancko. Ustawiles stope procentowa na "<<s<<" %";
-        return stopa;
-
+        stopa=s/100;
         getchar();
+
     }
     else
     {

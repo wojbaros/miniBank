@@ -3,8 +3,8 @@ Baranowski
 123456
 wojbar
 elokot
-10000
-0
+13000
+3390
 Jakub 
 Miskiewicz
 234567
@@ -26,4 +26,3 @@ aga
 aga
 40000
 0
-

@@ -86,6 +86,7 @@ public:
     double stopaprocentowa();
     friend void administracja();
     friend void logowanieadmin();
+    friend void Konto::pozyczka();
 };
 
 #endif // KONTO_H_INCLUDED

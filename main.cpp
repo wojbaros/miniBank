@@ -9,6 +9,7 @@ using namespace std;
 
 
 
+
 int menu();
 void wczytywanie();
 void zapis();
