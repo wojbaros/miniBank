@@ -62,7 +62,7 @@ public:
         getline(in,a.nazwisko );
         getline(in,a.numer);
         getline(in,a.login );
-        getline(in,a.haslo ); // since the name is first and last i have to use getline
+        getline(in,a.haslo ); 
         getline(in,zmiana);
         a.stan=atof(zmiana.c_str());
         getline(in,podmiana);
