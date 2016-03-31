@@ -7,6 +7,7 @@
 #include <vector>
 #include <ctime>
 #include <fstream>
+#include <sstream>
 #include <algorithm>
 
 using namespace std;
@@ -230,11 +231,18 @@ string nowehaslo(int len)
     }
     return str;
 }
-string nowynumer()
+string generatornumeru()
 {
-    string c="260000";
 
-    return c;
+    srand(time(0));
+    int pos;
+    string a="26";
+    pos = ((rand() % 100000000)+10000000);
+    stringstream ss;
+    ss << pos;
+    string str = ss.str();
+    string b=a+str;
+    return b;
 }
 void nowekonto()
 {
@@ -252,7 +260,7 @@ void nowekonto()
     cout<<"Podaj login: ";
     cin>>l;
     h=nowehaslo(6);
-    numb=nowynumer();
+    numb=generatornumeru();
 
 
     if(sprawdzanieloginu(l)==klient.size())
@@ -260,10 +268,15 @@ void nowekonto()
         klient.push_back( Konto( i, n,numb,l,h,0,0) );
         system("cls");
         naglowek();
-        cout<<"Gratuluje! Wlasnie zalozyles u nas konto \n";
-        cout<<"Oto twoj nr konta: "<<numb;
-        cout<<"Oto twoj login: "<<l<<"\nTwoje haslo: "<<h<<"\nHaslo moze zmienic w kazdej chwili";
-        cout<<"\nKliknij dowolny klawisz by wejsc w panel logowania";
+        cout<<"Gratuluje! Wlasnie zalozyles u nas konto! \n";
+        cout<<"\nOto twoj nr konta: ";
+        for(int i=0;i<10;i++)
+    {
+        if (i==2||i==6) cout<<" ";
+        cout<<numb[i];
+    }
+        cout<<"\nOto twoj login: "<<l<<"\nTwoje haslo: "<<h<<"\nHaslo moze zmienic w kazdej chwili";
+        cout<<"\n\nKliknij dowolny klawisz by wejsc w panel logowania";
         getchar();
     }
     else

@@ -171,9 +171,12 @@ void Konto::zobacz() const
     cout<<"\n        Nazwisko: ";
     cout.width( 22 );
     cout<<nazwisko;
-     cout<<"\n        Numer konta: ";
-    cout.width( 19 );
-    cout<<numer;
+    cout<<"\n        Numer konta:        ";
+    for(int i=0;i<10;i++)
+    {
+        if (i==2||i==6) cout<<" ";
+        cout<<numer[i];
+    }
     cout<<"\n        Stan Konta: ";
     cout.width( 17);
     cout<<stan<<" zl";

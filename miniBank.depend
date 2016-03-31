@@ -41,12 +41,12 @@
 	<fstream>
 	<cstdlib>
 
-1459451881 e:\git\minibank\konto.h
+1459457354 e:\git\minibank\konto.h
 	<iostream>
 	<vector>
 	<cstdlib>
 
-1459451843 source:e:\git\minibank\menu.cpp
+1459456961 source:e:\git\minibank\menu.cpp
 	<iostream>
 	<cstdlib>
 	<stdio.h>
@@ -56,11 +56,12 @@
 	<vector>
 	<ctime>
 	<fstream>
+	<sstream>
 	<algorithm>
 
 1459429745 source:e:\git\minibank\obsluga.cpp
 
-1459451967 source:e:\git\minibank\konto.cpp
+1459457667 source:e:\git\minibank\konto.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>

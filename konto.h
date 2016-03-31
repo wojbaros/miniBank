@@ -39,6 +39,7 @@ public:
     friend void logowanie();
     friend int sprawdzanie(string l,string h);
     friend int sprawdzanieloginu(string l);
+    friend string generatornumeru();
     friend void listaklientow();
     friend void obsluga(int i);
     friend void wczytywanie();
@@ -62,7 +63,7 @@ public:
         getline(in,a.nazwisko );
         getline(in,a.numer);
         getline(in,a.login );
-        getline(in,a.haslo ); 
+        getline(in,a.haslo );
         getline(in,zmiana);
         a.stan=atof(zmiana.c_str());
         getline(in,podmiana);
