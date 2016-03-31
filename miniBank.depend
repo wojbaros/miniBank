@@ -1,0 +1,36 @@
+# depslib dependency file v1.0
+1459270910 source:e:\programowanie\minibank\main.cpp
+	<iostream>
+	<vector>
+	"konto.h"
+	<fstream>
+	<cstdlib>
+
+1459367502 source:e:\programowanie\minibank\menu.cpp
+	<iostream>
+	<cstdlib>
+	<stdio.h>
+	<conio.h>
+	<time.h>
+	"konto.h"
+	<vector>
+	<ctime>
+	<fstream>
+
+1459367679 source:e:\programowanie\minibank\konto.cpp
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<windows.h>
+	"konto.h"
+	<conio.h>
+	<time.h>
+	<fstream>
+
+1459365400 e:\programowanie\minibank\konto.h
+	<iostream>
+	<vector>
+	<cstdlib>
+
+1458672491 source:e:\programowanie\minibank\obsluga.cpp
+
