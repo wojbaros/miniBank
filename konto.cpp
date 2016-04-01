@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstdlib>
-#include <cstdio>
 #include <windows.h>
 #include "konto.h"
+#include "admin.h"
 #include <conio.h>
 #include <time.h>
 #include <fstream>
@@ -14,11 +14,10 @@ void restore(format f, precis p);
 
 format initialState = setFormat();
 precis prec = cout.precision(2);
-
 void naglowek();
 void obsluga(int i);
 extern Admin admin;
-
+extern vector<Konto> klient;
 
 Konto::Konto(string i,string n,string numb,string l,string h,double s,double d)
 {
@@ -30,6 +29,7 @@ Konto::Konto(string i,string n,string numb,string l,string h,double s,double d)
     stan=0;
     dlug=0;
 }
+
 void Konto::zobacz() const
 {
 
@@ -52,8 +52,6 @@ void Konto::zobacz() const
     cout.width( 21);
     cout<<dlug<<" zl";
     cout<<"\n        ________________________________"<<endl;
-
-
 }
 
 void Konto::wplata()
@@ -75,7 +73,6 @@ void Konto::wplata()
         cin.clear();
         getchar();
         cin.sync();
-
     }
     getchar();
 }
@@ -91,7 +88,6 @@ void Konto::wyplata()
         stan-=kwota;
         cout<<"Prosze bardzo oto twoje "<<kwota<<" zl";
         getchar();
-
     }
     else if (cin.good()&&kwota>=stan)
     {
@@ -101,17 +97,14 @@ void Konto::wyplata()
     }
     else
     {
-
-
         cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
         cin.sync();
-
     }
     getchar();
-
 }
+
 void Konto::pozyczka()
 {
     double kwota;
@@ -126,7 +119,6 @@ void Konto::pozyczka()
         cout<<"Pozyczka udzielona. Na twoje konto przelalismy "<<kwota<<" zl\n";
         cout<<"Doliczono rowniez odsetki od pozyczki w wysokosci "<<procent*kwota<<" zl";
         getchar();
-
     }
     else if (cin.good()&&kwota>=100000)
     {
@@ -136,17 +128,14 @@ void Konto::pozyczka()
     }
     else
     {
-
-
         cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
         cin.sync();
-
     }
     getchar();
-
 }
+
 void Konto::splata()
 {
     double kwota;
@@ -174,8 +163,6 @@ void Konto::splata()
     }
     else
     {
-
-
         cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
@@ -184,9 +171,6 @@ void Konto::splata()
     }
     getchar();
 }
-
-
-
 
 void Konto::zmianahasla()
 {
@@ -213,46 +197,13 @@ void Konto::zmianahasla()
 
 void usunkonto() {}
 
-Admin::Admin(string l,string h,double s)
-{
-    login=l;
-    haslo=h;
-    stopa=s;
-}
-double Admin::stopaprocentowa()
-{
-    cout<<"Obecna Stopa procentowa wynosi: "<<stopa*100<<" %";
-    cout<<" \nZmien ja i podaj nowa stope procentowa w procentach\n\n";
-    double s=0;
-    cin>>s;
-    if (cin.good()&& s>=0)
-    {
-        cout<<"Elegancko. Ustawiles stope procentowa na "<<s<<" %";
-        stopa=s/100;
-        getchar();
-
-    }
-    else
-    {
-        cout<<"Nastepnym razem kierwa podaj stope jako liczbe dodatnia, bo zal...";
-        cin.clear();
-        getchar();
-        cin.sync();
-    }
-
-    getchar();
-}
-
 format setFormat()
 {
-    // ustawienie formatu na ###.##
-    return cout.setf(std::ios_base::fixed,
-                     std::ios_base::floatfield);
+    return cout.setf(ios_base::fixed, ios_base::floatfield);
 }
 void restore(format f, precis p)
 {
-    cout.setf(f, std::ios_base::floatfield);
+    cout.setf(f,ios_base::floatfield);
     cout.precision(p);
-
 }
 

@@ -34,40 +34,50 @@
 
 1458672491 source:e:\programowanie\minibank\obsluga.cpp
 
-1459438661 source:e:\git\minibank\main.cpp
+1459512476 source:e:\git\minibank\main.cpp
 	<iostream>
-	<vector>
 	"konto.h"
-	<fstream>
-	<cstdlib>
+	"admin.h"
 
-1459511183 e:\git\minibank\konto.h
+1459512758 e:\git\minibank\konto.h
 	<iostream>
 	<vector>
 	<cstdlib>
 
-1459511215 source:e:\git\minibank\menu.cpp
+1459512453 source:e:\git\minibank\menu.cpp
 	<iostream>
 	<cstdlib>
 	<stdio.h>
 	<conio.h>
-	<time.h>
 	"konto.h"
+	"admin.h"
 	<vector>
 	<ctime>
 	<fstream>
 	<sstream>
-	<algorithm>
 
 1459429745 source:e:\git\minibank\obsluga.cpp
 
-1459511166 source:e:\git\minibank\konto.cpp
+1459512032 source:e:\git\minibank\konto.cpp
 	<iostream>
 	<cstdlib>
 	<cstdio>
 	<windows.h>
 	"konto.h"
+	"admin.h"
 	<conio.h>
 	<time.h>
 	<fstream>
+	<algorithm>
+
+1459512399 e:\git\minibank\admin.h
+	<iostream>
+	<vector>
+	<cstdlib>
+
+1459512429 source:e:\git\minibank\admin.cpp
+	<iostream>
+	"konto.h"
+	"admin.h"
+	<algorithm>
 

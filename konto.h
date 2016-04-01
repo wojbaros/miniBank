@@ -6,10 +6,7 @@
 #include<cstdlib>
 using namespace std;
 
-
-
 class Admin;
-
 class Konto
 {
     friend class Admin;
@@ -22,7 +19,6 @@ private:
     double stan;
     double dlug;
 public:
-
 
     Konto(string i,string n,string numb="numer_konta",string l="login",string haslo="haslo",double stan=0,double dlug=0);
     Konto() {}
@@ -77,24 +73,6 @@ public:
             return true;
         else return false;
     }
-};
-
-
-class Admin
-{
-private:
-    string login;
-    string haslo;
-    double stopa;
-public:
-    friend class Konto;
-    Admin (string l,string h,double s);
-    void naglowek();
-
-    double stopaprocentowa();
-    friend void administracja();
-    friend void logowanieadmin();
-    friend void Konto::pozyczka();
 };
 
 #endif // KONTO_H_INCLUDED

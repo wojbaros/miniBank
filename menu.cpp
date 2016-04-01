@@ -2,13 +2,13 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <conio.h>
-#include <time.h>
 #include "konto.h"
+#include "admin.h"
 #include <vector>
 #include <ctime>
 #include <fstream>
 #include <sstream>
-#include <algorithm>
+
 
 using namespace std;
 vector<Konto> klient;
@@ -25,9 +25,6 @@ void obsluga(int i);
 void administracja();
 void przelew(unsigned int i);
 
-
-
-
 void wczytywanie()
 {
     fstream file;
@@ -37,10 +34,8 @@ void wczytywanie()
     {
         klient.push_back(temp);
     }
-
     file.close();
 }
-
 
 void naglowek()
 {
@@ -52,13 +47,8 @@ void naglowek()
     cout<<"           "<<ctime(&czas);
     for (int i=1; i<50; i++)
         cout<<"*";
-
-    cout<<endl;
+        cout<<endl;
 }
-
-
-
-
 
 int menu()
 {
@@ -109,17 +99,8 @@ int menu()
     }
 }
 
-
-
-
-
-
-
-
 void logowanieadmin()
 {
-
-
     system("cls");
     naglowek();
     cout<<"Logowanie administratora.\n";
@@ -135,7 +116,6 @@ void logowanieadmin()
     }
     else
     {
-
         cout<<"Nieprawidlowe login lub haslo administratora...";
         cout<<"\n1. Chce sprobowac podownie\n";
         cout<<"2. Chce wrocic do glownego Menu\n";
@@ -147,9 +127,8 @@ void logowanieadmin()
         case '1':
             logowanieadmin();
             break;
+
         case '2':
-
-
             break;
 
         default:
@@ -158,10 +137,8 @@ void logowanieadmin()
         }
     }
 }
-
 void administracja()
 {
-
 
     char wybor=0;
     for(;;)
@@ -179,7 +156,7 @@ void administracja()
 
             system("cls");
             naglowek();
-            listaklientow();
+            admin.listaklientow();
             break;
         case '2':
 
@@ -212,12 +189,9 @@ int sprawdzanieloginu(string l)
     {
         if(l == klient[i].login)
             return i;
-
     }
     return i;
 }
-
-
 
 string nowehaslo(int len)
 {
@@ -246,8 +220,6 @@ string generatornumeru()
 }
 void nowekonto()
 {
-
-
     system("cls");
     naglowek();
     cout<<"Witam serdecznie w naszym banku: \n";
@@ -261,7 +233,6 @@ void nowekonto()
     cin>>l;
     h=nowehaslo(6);
     numb=generatornumeru();
-
 
     if(sprawdzanieloginu(l)==klient.size())
     {
@@ -281,15 +252,12 @@ void nowekonto()
     }
     else
     {
-
         cout<<"\nLogin zajety...Nastepnym razem Ci sie uda";
         getchar();
-
     }
-
-
     getchar();
 }
+
 int sprawdzanie(string l, string h)
 
 {
@@ -298,24 +266,10 @@ int sprawdzanie(string l, string h)
     {
         if(l == klient[i].login && h == klient[i].haslo)
             return i;
-
     }
     return i;
 }
 
-
-void listaklientow()
-{
-    system("cls");
-    naglowek();
-    sort(klient.begin(),klient.end());
-    for (int i=0;i<klient.size();i++)
-    klient[i].zobacz();
-    cout<<"        Liczba klientow: "<<klient.size();
-    getchar();
-    getchar();
-
-}
 void logowanie()
 {
 
@@ -330,7 +284,6 @@ void logowanie()
 
     if(sprawdzanie(l,h)<klient.size())
     {
-
         system("cls");
         naglowek();
         int i=sprawdzanie(l,h);
@@ -340,7 +293,6 @@ void logowanie()
     }
     else
     {
-
         cout<<"Nieprawidlowe login lub haslo...";
         cout<<"\n1. Chce sprobowac podownie\n";
         cout<<"2. Chce zalozyc nowe konto\n";
@@ -366,7 +318,6 @@ void logowanie()
         }
     }
     return;
-
 }
 void obsluga(int i)
 {
@@ -445,8 +396,6 @@ void obsluga(int i)
 
 void przelew(unsigned int i)
 {
-
-
     unsigned int id=klient.size();
     double kwota;
     string im,nazw;
@@ -458,7 +407,6 @@ void przelew(unsigned int i)
     cout<<"Podaj kwote: ";
     cin>>kwota;
 
-
     for (int j=0; j<klient.size(); j++)
     {
         if (im==klient[j].imie && nazw==klient[j].nazwisko)
@@ -469,7 +417,6 @@ void przelew(unsigned int i)
     {
         for(;;)
         {
-
             system("cls");
             naglowek();
             cout<<"Adresat przelewu: \n"<<klient[id].imie<<" "<<klient[id].nazwisko;;
@@ -513,8 +460,6 @@ void przelew(unsigned int i)
     }
     else
     {
-
-
         cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
@@ -522,14 +467,7 @@ void przelew(unsigned int i)
 
     }
     getchar();
-
-
-
 }
-
-
-
-
 
 void zapis()
 {
