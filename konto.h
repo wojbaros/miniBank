@@ -27,11 +27,11 @@ public:
     Konto(string i,string n,string numb="numer_konta",string l="login",string haslo="haslo",double stan=0,double dlug=0);
     Konto() {}
     void naglowek();
+    void zobacz() const ;
     void wplata();
     void wyplata();
     void pozyczka();
     void splata();
-    void zobacz() const;
     void zmianahasla();
 
 

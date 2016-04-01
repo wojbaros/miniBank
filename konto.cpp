@@ -30,6 +30,31 @@ Konto::Konto(string i,string n,string numb,string l,string h,double s,double d)
     stan=0;
     dlug=0;
 }
+void Konto::zobacz() const
+{
+
+    cout<<"\n        Imie: ";
+    cout.width( 26 );
+    cout<<imie;
+    cout<<"\n        Nazwisko: ";
+    cout.width( 22 );
+    cout<<nazwisko;
+    cout<<"\n        Numer konta:        ";
+    for(int i=0;i<10;i++)
+    {
+        if (i==2||i==6) cout<<" ";
+        cout<<numer[i];
+    }
+    cout<<"\n        Stan Konta: ";
+    cout.width( 17);
+    cout<<stan<<" zl";
+    cout<<"\n        Dlug: : ";
+    cout.width( 21);
+    cout<<dlug<<" zl";
+    cout<<"\n        ________________________________"<<endl;
+
+
+}
 
 void Konto::wplata()
 {
@@ -161,31 +186,7 @@ void Konto::splata()
 }
 
 
-void Konto::zobacz() const
 
-{
-
-    cout<<"\n        Imie: ";
-    cout.width( 26 );
-    cout<<imie;
-    cout<<"\n        Nazwisko: ";
-    cout.width( 22 );
-    cout<<nazwisko;
-    cout<<"\n        Numer konta:        ";
-    for(int i=0;i<10;i++)
-    {
-        if (i==2||i==6) cout<<" ";
-        cout<<numer[i];
-    }
-    cout<<"\n        Stan Konta: ";
-    cout.width( 17);
-    cout<<stan<<" zl";
-    cout<<"\n        Dlug: : ";
-    cout.width( 21);
-    cout<<dlug<<" zl";
-    cout<<"\n        ________________________________"<<endl;
-
-}
 
 void Konto::zmianahasla()
 {
