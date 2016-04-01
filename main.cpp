@@ -1,14 +1,6 @@
 #include <iostream>
-#include<vector>
 #include "konto.h"
-#include <fstream>
-#include <cstdlib>
-
-using namespace std;
-
-
-
-
+#include "admin.h"
 
 int menu();
 void wczytywanie();
