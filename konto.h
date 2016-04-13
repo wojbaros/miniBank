@@ -6,10 +6,10 @@
 #include<cstdlib>
 using namespace std;
 
-class Admin;
+
 class Konto
 {
-    friend class Admin;
+
 private:
     string imie;
     string nazwisko;
@@ -33,8 +33,8 @@ public:
 
     friend void przelew(unsigned int i);
     friend void logowanie();
-    friend int sprawdzanie(string l,string h);
-    friend int sprawdzanieloginu(string l);
+    friend unsigned int sprawdzanie(string l,string h);
+    friend unsigned int sprawdzanieloginu(string l);
     friend string generatornumeru();
     friend void listaklientow();
     friend void obsluga(int i);

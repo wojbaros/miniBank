@@ -1,19 +1,12 @@
 #include <iostream>
 #include <cstdlib>
-#include <windows.h>
 #include "konto.h"
 #include "admin.h"
 #include <conio.h>
 #include <time.h>
 #include <fstream>
 using namespace std;
-typedef std::ios_base::fmtflags format;
-typedef std::streamsize precis;
-format setFormat();
-void restore(format f, precis p);
 
-format initialState = setFormat();
-precis prec = cout.precision(2);
 void naglowek();
 void obsluga(int i);
 extern Admin admin;
@@ -69,7 +62,7 @@ void Konto::wplata()
     }
     else
     {
-        cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
+        cout<<"Nastepnym razem podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
         cin.sync();
@@ -91,13 +84,13 @@ void Konto::wyplata()
     }
     else if (cin.good()&&kwota>=stan)
     {
-        cout<<"Nie masz tyle na koncie biedaku";
+        cout<<"Nie masz tyle na koncie ";
 
-        getchar();;
+        getchar();
     }
     else
     {
-        cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
+        cout<<"Nastepnym razem podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
         cin.sync();
@@ -128,7 +121,7 @@ void Konto::pozyczka()
     }
     else
     {
-        cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
+        cout<<"Nastepnym razem podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
         cin.sync();
@@ -163,7 +156,7 @@ void Konto::splata()
     }
     else
     {
-        cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
+        cout<<"Nastepnym razem podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
         cin.sync();
@@ -197,13 +190,4 @@ void Konto::zmianahasla()
 
 void usunkonto() {}
 
-format setFormat()
-{
-    return cout.setf(ios_base::fixed, ios_base::floatfield);
-}
-void restore(format f, precis p)
-{
-    cout.setf(f,ios_base::floatfield);
-    cout.precision(p);
-}
 
