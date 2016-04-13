@@ -11,7 +11,7 @@ Admin::Admin(string l,string h,double s)
     haslo=h;
     stopa=s;
 }
-double Admin::stopaprocentowa()
+void Admin::stopaprocentowa()
 {
     cout<<"Obecna Stopa procentowa wynosi: "<<stopa*100<<" %";
     cout<<" \nZmien ja i podaj nowa stope procentowa w procentach\n\n";
@@ -36,7 +36,7 @@ double Admin::stopaprocentowa()
 void Admin::listaklientow()
 {
     sort(klient.begin(),klient.end());
-    for (int i=0;i<klient.size();i++)
+    for (unsigned int i=0;i<klient.size();i++)
     klient[i].zobacz();
     cout<<"        Liczba klientow: "<<klient.size();
     getchar();

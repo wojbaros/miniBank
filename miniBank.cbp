@@ -32,11 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="admin.cpp" />
+		<Unit filename="admin.h" />
 		<Unit filename="konto.cpp" />
 		<Unit filename="konto.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
-		<Unit filename="obsluga.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

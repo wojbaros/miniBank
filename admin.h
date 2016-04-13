@@ -15,11 +15,10 @@ private:
     string haslo;
     double stopa;
 public:
-    friend class Konto;
     Admin (string l,string h,double s);
     void naglowek();
     friend void administracja();
-    double stopaprocentowa();
+    void stopaprocentowa();
     friend void logowanieadmin();
     void listaklientow();
     friend void Konto::pozyczka();

@@ -14,11 +14,11 @@ using namespace std;
 vector<Konto> klient;
 Admin admin("admin","haslo",0);
 
-string nowehaslo(int len);
+string nowehaslo(unsigned int len);
 void nowekonto();
 void listaklientow();
-int sprawdzanie(string l, string h);
-int sprawdzanieloginu(string l);
+unsigned int sprawdzanie(string l, string h);
+unsigned int sprawdzanieloginu(string l);
 void logowanie();
 void logowanieadmin();
 void obsluga(int i);
@@ -28,7 +28,7 @@ void przelew(unsigned int i);
 void wczytywanie()
 {
     fstream file;
-    file.open( "lista_klientow.txt", std::ios::in );
+    file.open( "lista_klientow.txt",ios::in );
     Konto temp;
     while(file >> temp)
     {
@@ -47,11 +47,13 @@ void naglowek()
     cout<<"           "<<ctime(&czas);
     for (int i=1; i<50; i++)
         cout<<"*";
-        cout<<endl;
+    cout<<endl;
 }
 
 int menu()
 {
+    cout.setf(ios_base::fixed, ios_base::floatfield);
+    cout.precision(2);
 
     char wybor=0;
     for(;;)
@@ -181,7 +183,7 @@ void administracja()
     }
 }
 
-int sprawdzanieloginu(string l)
+unsigned int sprawdzanieloginu(string l)
 
 {
     unsigned i;
@@ -193,7 +195,7 @@ int sprawdzanieloginu(string l)
     return i;
 }
 
-string nowehaslo(int len)
+string nowehaslo(unsigned int len)
 {
     srand(time(0));
     string str = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -241,11 +243,11 @@ void nowekonto()
         naglowek();
         cout<<"Gratuluje! Wlasnie zalozyles u nas konto! \n";
         cout<<"\nOto twoj nr konta: ";
-        for(int i=0;i<10;i++)
-    {
-        if (i==2||i==6) cout<<" ";
-        cout<<numb[i];
-    }
+        for(int i=0; i<10; i++)
+        {
+            if (i==2||i==6) cout<<" ";
+            cout<<numb[i];
+        }
         cout<<"\nOto twoj login: "<<l<<"\nTwoje haslo: "<<h<<"\nHaslo moze zmienic w kazdej chwili";
         cout<<"\n\nKliknij dowolny klawisz by wejsc w panel logowania";
         getchar();
@@ -258,10 +260,10 @@ void nowekonto()
     getchar();
 }
 
-int sprawdzanie(string l, string h)
+unsigned int sprawdzanie(string l, string h)
 
 {
-    unsigned i;
+    unsigned int i;
     for (i =0; i<klient.size(); i++)
     {
         if(l == klient[i].login && h == klient[i].haslo)
@@ -407,7 +409,7 @@ void przelew(unsigned int i)
     cout<<"Podaj kwote: ";
     cin>>kwota;
 
-    for (int j=0; j<klient.size(); j++)
+    for (unsigned int j=0; j<klient.size(); j++)
     {
         if (im==klient[j].imie && nazw==klient[j].nazwisko)
             id=j;
@@ -430,25 +432,28 @@ void przelew(unsigned int i)
                 klient[id].stan+=kwota;
                 cout<<"Przelew dokonany\n";
                 cout<<klient[id].imie<<" "<<klient[id].nazwisko<<" otrzymal "<<kwota<<" zl";
-                getchar();getchar();
+                getchar();
+                getchar();
                 return;
             }
             else if (g=='n'||g=='N')
             {
                 cout<<"Dyspozycje anulowano, milego dzionka!";
-                getchar(); getchar();
+                getchar();
+                getchar();
                 return;
             }
             else
             {
                 cout<<"Ale widzisz jaki masz wybor czy nie?";
-                getchar();getchar();
+                getchar();
+                getchar();
             }
         }
     }
     else if (cin.good()&&kwota>=klient[i].stan)
     {
-        cout<<"Nie masz tyle na koncie biedaku";
+        cout<<"Nie masz tyle na koncie";
 
         getchar();;
     }
@@ -460,7 +465,7 @@ void przelew(unsigned int i)
     }
     else
     {
-        cout<<"Nastepnym razem kierwa podaj kwote jak liczbe dodatnia, bo zal...";
+        cout<<"Nastepnym razem  podaj kwote jak liczbe dodatnia, bo zal...";
         cin.clear();
         getchar();
         cin.sync();
@@ -472,9 +477,8 @@ void przelew(unsigned int i)
 void zapis()
 {
     fstream file;
-    file.open( "lista_klientow.txt", std::ios::out );
-    file.clear();
-    for(int i=0; i<klient.size(); i++)
+    file.open( "lista_klientow.txt", ios::out |ios::trunc );
+    for(unsigned int i=0; i<klient.size(); i++)
         file<<klient[i];
     file.close();
 }

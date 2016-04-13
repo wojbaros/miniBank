@@ -10,7 +10,7 @@ Kwapisiewicz
 2600001234
 karol
 karol
-30000
+30500
 0
 Agnieszka
 Kordiak
@@ -24,5 +24,5 @@ Baranowski
 2600004968
 wojbar
 elokot
-113000
-3390
+113195
+4365
